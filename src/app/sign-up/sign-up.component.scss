@@ -1,0 +1,17 @@
+.signup-container {
+    background-color: rgba(0,0,0,.1);
+    border-radius: 5px;
+    padding: 2em 1em;
+    max-width: 30rem;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 40em) {
+    .signup-container {
+        padding: 2em 2em;
+    }
+}

@@ -1,0 +1,12 @@
+.app-container {
+    padding: 0 0;
+    max-width: 60rem;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+
+@media (min-width: 40em) {
+    .app-container {
+        padding: 0 1em;
+    }
+}
