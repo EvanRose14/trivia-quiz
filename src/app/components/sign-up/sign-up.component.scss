@@ -1,10 +1,16 @@
+@import "~@angular/material/theming";
+@import './../../../styles.scss';
+
+$color-primary: mat-color($trivia-quiz-primary);
+$color-accent: mat-color($trivia-quiz-accent);
+$color-text: mat-color($trivia-quiz-accent, default-contrast);
+
 .signup-container {
-    background-color: rgba(0,0,0,.1);
+    color: $color-text;
     border-radius: 5px;
     padding: 2em 1em;
     max-width: 30rem;
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

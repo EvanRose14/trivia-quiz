@@ -2,7 +2,9 @@
 // @import './../../styles.scss';
 
 // $color-accent: mat-color($trivia-quiz-accent);
-
+.mat-toolbar {
+    background: none;
+}
 .navbar-title {
     cursor: pointer;
 }

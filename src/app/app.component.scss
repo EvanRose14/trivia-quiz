@@ -1,12 +1,24 @@
+@import "~@angular/material/theming";
+@import '../styles.scss';
+
+$color-primary-darker: mat-color($trivia-quiz-primary);
+$color-text: mat-color($trivia-quiz-accent, default-contrast);
+
+.app {
+    background: rgba($color-primary-darker, 1);
+    height: 100%;
+    margin: 0;
+    color: $color-text;
+}
+
 .app-container {
-    padding: 0 0;
+    padding: 0;
     max-width: 60rem;
     margin: 0 auto;
-    margin-top: 1em;
 }
 
 @media (min-width: 40em) {
     .app-container {
-        padding: 0 1em;
+        padding: 2em 1em;
     }
 }
