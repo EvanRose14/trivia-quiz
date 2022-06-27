@@ -14,6 +14,7 @@ $color-text: mat-color($trivia-quiz-accent, default-contrast);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: .5em;
 }
 
 @media (min-width: 40em) {
