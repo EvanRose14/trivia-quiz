@@ -88,7 +88,10 @@ export class SignUpComponent implements OnInit {
         
         this.handleServerError(e);
       },
-      complete: () => console.log('Sign up complete!')
+      complete: () => {
+        console.log('Sign up complete!');
+        this.snackbar.openSnackBar('Welcome: ' + this.username.value + '!');
+      }
     });
   }
 

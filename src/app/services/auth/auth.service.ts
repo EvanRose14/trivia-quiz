@@ -16,4 +16,12 @@ export class AuthService {
     }
     return this.http.post('http://localhost:3000/auth/signup', body);
   }
+
+  login(email: string, password: string) {
+    let body = {
+      email,
+      password
+    }
+    return this.http.post('http://localhost:3000/auth/login', body);
+  }
 }

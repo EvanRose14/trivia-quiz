@@ -19,7 +19,7 @@ $trivia-quiz-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$trivia-quiz-theme: mat.define-dark-theme((
+$trivia-quiz-theme: mat.define-light-theme((
   color: (
     primary: $trivia-quiz-primary,
     accent: $trivia-quiz-accent,

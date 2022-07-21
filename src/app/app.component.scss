@@ -2,10 +2,12 @@
 @import '../styles.scss';
 
 $color-primary-darker: mat-color($trivia-quiz-primary);
-$color-text: mat-color($trivia-quiz-accent, default-contrast);
+$color-text: mat-color($trivia-quiz-accent, default);
 
 .app {
-    background: rgba($color-primary-darker, 1);
+    // background: rgba($color-primary-darker, 1);
+    // background: #323232;
+    background: #e9e8ef;
     height: 100%;
     margin: 0;
     color: $color-text;
