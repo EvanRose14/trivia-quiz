@@ -24,6 +24,12 @@ export class LoginComponent implements OnInit {
   }  
 
   getErrorMessage(c: FormControl) {
+    if (c.hasError('notfound')) {
+      return 'Email not found';
+    }
+    if (c.hasError('password')) {
+      return 'Password Incorrect';
+    }
     if (c.hasError('required')) {
       return 'You must enter a value';
     }
@@ -48,10 +54,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
-
   handleServerError(e: any) {
+    switch(e.error.message) {
+      case 'Email not found':
+        this.email.setErrors({notfound: true});
+        break;
+      case 'Incorrect password': 
+        this.password.setErrors({password: true});
+        break;
+    }
     this.snackbar.openSnackBar('Failed to sign in: ' + e.error.message);
   }
-
 }

@@ -95,8 +95,6 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-
-
   handleServerError(e: any) {
     switch(e.error.message) {
       case 'Username taken':
