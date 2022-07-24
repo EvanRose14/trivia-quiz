@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { StorageKey, StorageService } from 'src/app/services/auth/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  loggedIn: boolean = false;
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.auth.isLoggedIn.subscribe((val) => {
+      this.loggedIn = val;
+    });
   }
 
 }

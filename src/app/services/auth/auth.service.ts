@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { StorageKey, StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private storage: StorageService) { }
+
+  public isLoggedIn = new BehaviorSubject<boolean>(false);
 
   signUp(name: string, email: string, password: string) {
     let body = {
@@ -22,6 +26,26 @@ export class AuthService {
       email,
       password
     }
-    return this.http.post('http://localhost:3000/auth/login', body);
+    return new Observable(observer => {
+      this.http.post('http://localhost:3000/auth/login', body).subscribe({
+        next: (data: any) => {
+          this.storage.set(StorageKey.AUTH_ACCESS_TOKEN, data.accessToken);
+          this.storage.set(StorageKey.AUTH_REFRESH_TOKEN, data.refreshToken);
+          this.isLoggedIn.next(true);
+          observer.next(data);
+        },
+        error: (e: any) => {
+          observer.error(e);
+        },
+        complete: () => {
+          observer.complete();
+        }
+      })
+    });
+  }
+
+  logout() {
+    this.storage.clear();
+    this.isLoggedIn.next(false);
   }
 }

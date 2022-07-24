@@ -14,8 +14,8 @@
         <mat-icon>{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
     </mat-form-field>
-    <button type="submit" mat-raised-button color="accent" [disabled]="email?.invalid || password?.invalid">Sign In</button>
-    <mat-divider></mat-divider>
+    <button type="submit" mat-raised-button color="accent" [disabled]="email.invalid || password.invalid || loading">Sign In</button>
+    <mat-divider *ngIf="!loading"></mat-divider>
+    <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
     <a type="button" mat-stroked-button routerLink="/signup">Don't have an account? Sign up</a>
-    
 </form>

@@ -19,7 +19,8 @@
       <mat-icon>{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon>
     </button>
   </mat-form-field>
-  <button type="submit" mat-raised-button color="accent" [disabled]="username?.invalid || email?.invalid || password?.invalid">Sign Up</button>
-  <mat-divider></mat-divider>
+  <button type="submit" mat-raised-button color="accent" [disabled]="username.invalid || email.invalid || password.invalid">Sign Up</button>
+  <mat-divider *ngIf="!loading"></mat-divider>
+  <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
   <a type="button" mat-stroked-button routerLink="/login">Already have an account? Login</a>
 </form>

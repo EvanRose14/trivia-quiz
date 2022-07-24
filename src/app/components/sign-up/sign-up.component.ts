@@ -14,6 +14,7 @@ export class SignUpComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(7)]);
   hidePassword: boolean = true;
+  loading: boolean = false;
 
   constructor(
       private auth: AuthService,
@@ -79,16 +80,18 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
+    this.loading = true;
     this.auth.signUp(this.username.value, this.email.value, this.password.value).subscribe({
       next: (data) => {
         console.log('data',data);
         //do things after signup
       },
       error: (e) => {
-        
+        this.loading = false;
         this.handleServerError(e);
       },
       complete: () => {
+        this.loading = false;
         console.log('Sign up complete!');
         this.snackbar.openSnackBar('Welcome: ' + this.username.value + '!');
       }

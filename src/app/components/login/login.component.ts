@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
   hidePassword: boolean = true;
+  loading: boolean = false;
 
   constructor(
       private auth: AuthService,
@@ -37,16 +38,17 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.loading = true;
     this.auth.login(this.email.value, this.password.value).subscribe({
       next: (data: any) => {
         console.log('data',data);
-        //do things after signup
       },
       error: (e: any) => {
-        
+        this.loading = false;
         this.handleServerError(e);
       },
       complete: () => {
+        this.loading = false;
         console.log('Login Successful!');
         this.route.navigate(['/home']);
         this.snackbar.openSnackBar('Login Successful!');
@@ -63,6 +65,11 @@ export class LoginComponent implements OnInit {
         this.password.setErrors({password: true});
         break;
     }
-    this.snackbar.openSnackBar('Failed to sign in: ' + e.error.message);
+    if(e.error.message === undefined) {
+      this.snackbar.openSnackBar('Failed to sign in: Unable to connect to server');
+    } else {
+      this.snackbar.openSnackBar('Failed to sign in: ' + e.error.message);
+    }
+    
   }
 }

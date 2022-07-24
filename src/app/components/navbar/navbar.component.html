@@ -1,8 +1,10 @@
 <mat-toolbar>
+    <!-- <a mat-icon-button><mat-icon>menu</mat-icon></a> -->
     <span routerLink="home" class="navbar-title">Trivia</span>
     <div class="spacer"></div>
-    <a mat-stroked-button routerLink="login">Login</a>
-    <a mat-raised-button color="accent" routerLink="signup">Sign Up</a>
+    <a *ngIf="!loggedIn" mat-stroked-button routerLink="login">Login</a>
+    <a *ngIf="!loggedIn" mat-raised-button color="accent" routerLink="signup">Sign Up</a>
+    <a *ngIf="loggedIn" mat-button (click)="handleLogout()">Logout</a>
     <!-- <app-avatar [matMenuTriggerFor]="menu"></app-avatar>
     <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="login">Login</button>
