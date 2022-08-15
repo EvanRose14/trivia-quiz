@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-title>{{question.category}}</mat-card-title>
+    <mat-card-subtitle>{{question.difficulty}}</mat-card-subtitle>
+    <mat-card-content>
+        <p>
+          {{question.question}}
+        </p>
+        <div *ngFor="let answer of answers">
+            <button mat-raised-button color="primary">{{answer}}</button>
+        </div>
+        
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-raised-button color="accent" (click)="fetchTriviaQuestion()">New Question</button>
+    </mat-card-actions>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+</mat-card> 

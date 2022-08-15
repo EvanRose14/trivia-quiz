@@ -13,6 +13,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatCardModule} from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
 import { AvatarComponent } from './components/shared/avatar/avatar.component';
+import { TriviaQuestionComponent } from './components/trivia-question/trivia-question.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { AvatarComponent } from './components/shared/avatar/avatar.component';
     HomeComponent,
     SignUpComponent,
     LoginComponent,
-    AvatarComponent
+    AvatarComponent,
+    TriviaQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { AvatarComponent } from './components/shared/avatar/avatar.component';
     MatSnackBarModule,
     MatDividerModule,
     MatMenuModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
