@@ -9,6 +9,6 @@ export class TriviaService {
   constructor(private http: HttpClient) { }
 
   getTriviaQuestion() {
-    return this.http.get('http://localhost:3000/trivia/question');
+    return this.http.get('http://localhost:3001/trivia/question');
   }
 }

@@ -18,7 +18,7 @@ export class AuthService {
       email,
       password
     }
-    return this.http.post('http://localhost:3000/auth/signup', body);
+    return this.http.post('http://localhost:3001/auth/signup', body);
   }
 
   login(email: string, password: string) {
@@ -27,7 +27,7 @@ export class AuthService {
       password
     }
     return new Observable(observer => {
-      this.http.post('http://localhost:3000/auth/login', body).subscribe({
+      this.http.post('http://localhost:3001/auth/login', body).subscribe({
         next: (data: any) => {
           this.storage.set(StorageKey.AUTH_ACCESS_TOKEN, data.accessToken);
           this.storage.set(StorageKey.AUTH_REFRESH_TOKEN, data.refreshToken);
